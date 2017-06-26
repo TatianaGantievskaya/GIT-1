@@ -8,43 +8,27 @@ namespace Sequence
         {
             try
             {
-                bool check = false;
-                Console.WriteLine("Enter a sequence of numbers:");
-                string[] numbers = Console.ReadLine().Split();
-                int n = numbers.Length;
-                if (n >= 2)
+                bool repeatInput = true;
+                string[] StringNumbers = null;
+
+                while (repeatInput)
                 {
-                    check = true;
-                }
-                while (check != true)
-                {
-                    if (n < 2)
+                    Console.WriteLine("Enter a sequence of numbers:");
+                    StringNumbers = Console.ReadLine().Split();
+                    if (StringNumbers.Length > 1)
                     {
-                        Console.WriteLine("This is not a sequence. You must enter more than one number. If you want to enter numbers again, type 'continue'. Also you can type anything to exit.");
-                        string choice = Console.ReadLine();
-                        if (choice == "continue")
-                        {
-                            Console.WriteLine("\nEnter a sequence of numbers:");
-                            numbers = Console.ReadLine().Split();
-                            n = numbers.Length;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                        if (n >= 2)
-                        {
-                            check = true;
-                        }
+                        repeatInput = false;
                     }
                 }
-                int[] sequence = new int[n];
-                for (int i = 0; i < n; i++)
+                
+                int[] sequence = new int[StringNumbers.Length];
+                for (int i = 0; i < StringNumbers.Length; i++)
                 {
-                    sequence[i] = int.Parse(numbers[i]);
+                    sequence[i] = int.Parse(StringNumbers[i]);
                 }
+
                 int counter = 0;
-                for (int j = 1; j < n; j++)
+                for (int j = 1; j < StringNumbers.Length; j++)
                 {
                     if (sequence[j] < sequence[j - 1])
                     {
