@@ -30,7 +30,7 @@ namespace Sequence
                         }
                         else
                         {
-                            Environment.Exit(0);
+                            return;
                         }
                         if (n >= 2)
                         {
