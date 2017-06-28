@@ -2,7 +2,7 @@
 
 namespace Sequence
 {
-    class Program
+    class SequenceOfNumbers
     {
         static void Main(string[] args)
         {
@@ -26,15 +26,16 @@ namespace Sequence
                             sequence[i] = int.Parse(StringNumbers[i]);
                         }
 
-                        int counter = 0;
+                        bool counter = false;
                         for (int j = 1; j < StringNumbers.Length; j++)
                         {
                             if (sequence[j] < sequence[j - 1])
                             {
-                                counter++;
+                                counter = true;
+                                break;
                             }
                         }
-                        if (counter != 0)
+                        if (counter)
                         {
                             Console.WriteLine("\nYour sequence is not non-decreasing.");
                         }
@@ -44,12 +45,7 @@ namespace Sequence
                         }
                     }
                 }
-                catch (System.ArgumentOutOfRangeException ex)
-                {
-                    Console.WriteLine("\nError: " + ex.Message);
-                    repeatInput = true;
-                }
-                catch (System.FormatException ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine("\nError: " + ex.Message);
                     repeatInput = true;
