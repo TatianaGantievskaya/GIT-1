@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fibonacci
 {
@@ -32,7 +28,7 @@ namespace Fibonacci
                         }
                         else
                         {
-                            Environment.Exit(0);
+                            return;
                         }
                         if (number >= 0)
                         {
@@ -40,9 +36,7 @@ namespace Fibonacci
                         }
                     }
                 }
-                int F0, F1, FN;
-                FN = 0;
-                F1 = 1;
+                int F0, F1 = 1, FN = 0;
                 for (F0 = 0; F0 <= number; F0 = FN)
                 {
                     if (number == F0)
@@ -70,4 +64,3 @@ namespace Fibonacci
         }
     }
 }
-
