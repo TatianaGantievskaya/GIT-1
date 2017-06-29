@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sequence
 {
@@ -19,7 +15,6 @@ namespace Sequence
                     sequence[i] = int.Parse(StringNumbers[i]);
                 }
 
-                //bool counter = false;
                 for (int j = 1; j < StringNumbers.Length; j++)
                 {
                     if (sequence[j] < sequence[j - 1])
