@@ -8,33 +8,21 @@ namespace Sequence
         {
             bool repeatInput = true;
             string[] StringNumbers = null;
+            bool counter = false;
+            Input Line = new Input();
+            Check Numbers = new Check();
             while (repeatInput)
             {
                 try
                 {
-                    Console.WriteLine("Enter a sequence of numbers:");
-                    StringNumbers = Console.ReadLine().Split();
-                    if (StringNumbers.Length > 1)
+                    StringNumbers = Line.EnterNumbers(repeatInput);
+                    if (StringNumbers != null)
                     {
                         repeatInput = false;
                     }
                     if (!repeatInput)
                     {
-                        int[] sequence = new int[StringNumbers.Length];
-                        for (int i = 0; i < StringNumbers.Length; i++)
-                        {
-                            sequence[i] = int.Parse(StringNumbers[i]);
-                        }
-
-                        bool counter = false;
-                        for (int j = 1; j < StringNumbers.Length; j++)
-                        {
-                            if (sequence[j] < sequence[j - 1])
-                            {
-                                counter = true;
-                                break;
-                            }
-                        }
+                        counter = Numbers.Result(repeatInput, StringNumbers);
                         if (counter)
                         {
                             Console.WriteLine("\nYour sequence is not non-decreasing.");
